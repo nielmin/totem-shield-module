@@ -31,6 +31,15 @@
 };
 
 / {
+    behaviors {
+        ctrl_cln: control_colon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp COLON>;
+            mods = <(MOD_LCTL)>;
+        };
+    };
+
      combos {
             compatible = "zmk,combos";
             combo_esc {
@@ -79,10 +88,10 @@ label= "BASE"                              ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp Q       &kp W       &kp F       &kp P       &kp G           &kp J       &kp L       &kp U       &kp Y       &kp SEMI
-                &mt LGUI A  &mt LALT R  &mt LCTRL S &mt LSHFT T &kp D           &kp H       &mt RSHFT N &mt RCTRL E &mt RALT I  &mt RGUI O
-    &kp I       &kp Z       &kp X       &kp C       &kp V       &kp B           &kp K       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp BSLH
-                                        &kp DEL   &lt NAV TAB   &kp SPACE       &kp RET   &lt SYM ESC   &kp BSPC
+                &kp B       &kp L       &kp D       &kp W       &kp Z           &kp DQT     &kp F       &kp O       &kp U       &kp J
+                &kp N       &kp R       &kp T       &kp S       &kp G           &kp Y       &kp H       &kp A       &kp E       &kp I
+    &kp LCTRL   &kp Q       &kp X       &kp M       &kp C       &kp V           &kp K       &kp P       &kp MINUS   &kp DOT     &kp FSLH    &kp RCTRL
+                                        &kp DEL     &kp LALT    &ctrl_cln       &kp RET     &kp ESC     &kp BSPC
                         >;
                 };
 
