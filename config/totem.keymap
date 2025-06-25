@@ -32,10 +32,17 @@
 
 / {
     behaviors {
-        ctl_sc: control_space_colon {
+        space_morph_l1: rctl_space {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&kp COLON>;
+            bindings = <&kp SPACE>, <&kp COMMA>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        space_morph_l0: lctl_space {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&space_morph_l1>, <&kp COLON>;
             mods = <(MOD_LCTL)>;
         };
 
@@ -50,38 +57,38 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&r_qmark>, <&kp RET>;
-            /* bindings = <&mt RCTRL QMARK>, <&kp RET>; */
             mods = <(MOD_LCTL)>;
         };
+
     };
 
-     combos {
-            compatible = "zmk,combos";
-            combo_esc {
-                timeout-ms = <50>;
-                key-positions = <0 1>;
-                bindings = <&kp ESC>;
-            };
-            combo_tvp {
-                timeout-ms = <100>;
-                key-positions = <11 12 13>;
-                bindings = <&tog TVP1>;
-            };
-    };
+    /*  combos { */
+    /*         compatible = "zmk,combos"; */
+    /*         combo_esc { */
+    /*             timeout-ms = <50>; */
+    /*             key-positions = <0 1>; */
+    /*             bindings = <&kp ESC>; */
+    /*         }; */
+    /*         combo_tvp { */
+    /*             timeout-ms = <100>; */
+    /*             key-positions = <11 12 13>; */
+    /*             bindings = <&tog TVP1>; */
+    /*         }; */
+    /* }; */
 
-    macros {
-        gif: gif {
-            label = "giphy";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp N2>
-                , <&macro_release &kp LSHFT>
-                , <&macro_tap &kp G &kp I &kp F>
-                ;
-        };
-    };
+    /* macros { */
+    /*     gif: gif { */
+    /*         label = "giphy"; */
+    /*         compatible = "zmk,behavior-macro"; */
+    /*         #binding-cells = <0>; */
+    /*         bindings */
+    /*             = <&macro_press &kp LSHFT> */
+    /*             , <&macro_tap &kp N2> */
+    /*             , <&macro_release &kp LSHFT> */
+    /*             , <&macro_tap &kp G &kp I &kp F> */
+    /*             ; */
+    /*     }; */
+    /* }; */
 
         keymap {
                 compatible = "zmk,keymap";
@@ -101,12 +108,12 @@ label= "BASE"                              ;
 //                                     ┃    DEL    ┃    TAB    ┃    SPC    ┃   ┃   ENTER   ┃           ┃   BSPC    ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+/* ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷ */
 
                 &kp B       &kp L       &kp D       &kp W       &kp Z           &kp DQT     &kp F       &kp O       &kp U       &kp J
                 &kp N       &kp R       &kp T       &kp S       &kp G           &kp Y       &kp H       &kp A       &kp E       &kp I
   &mt LCTRL ESC &kp Q       &kp X       &kp M       &kp C       &kp V           &kp K       &kp P       &kp MINUS   &kp DOT     &kp FSLH    &r_ctl
-                                        &sk LSHIFT  &kp LMETA   &ctl_sc         &kp RALT    &kp BSPC    &sk RSHIFT
+                                        &sk LSHIFT  &kp LMETA   &space_morph_l0 &kp BSPC    &kp RALT    &sk RSHIFT
                         >;
                 };
 
@@ -127,7 +134,7 @@ label= "NAVI"                              ;
 //                                     ┃           ┃    TAB    ┃    SPC    ┃   ┃    DEL    ┃     0     ┃           ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+/* ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷ */
 
                 &kp ESC     &bt BT_CLR  &kp UP      &kp EQUAL   &kp LBRC        &kp RBRC    &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS
                 &kp LSHFT   &kp LEFT    &kp DOWN    &kp RIGHT   &kp LBKT        &kp RBKT    &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_MINUS
