@@ -25,17 +25,17 @@
         *   the desired mode of operation. Thus, subject
         *   to revision.
         */
-        space_morph_l1: rctl_space {
+        spc_L1: rctl_space {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SPACE>, <&kp COMMA>;
             mods = <(MOD_RCTL)>;
         };
 
-        space_morph_l0: lctl_space {
+        spc_L0: lctl_space {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&space_morph_l1>, <&kp COLON>;
+            bindings = <&spc_L1>, <&kp COLON>;
             mods = <(MOD_LCTL)>;
         };
 
@@ -135,10 +135,10 @@
         base_layer {
             label= "BASE";
             bindings = <
-                &kp B       &kp L       &kp D       &kp W       &kp Z           &kp DQT     &kp F       &kp O       &kp U       &kp J
-                &kp N       &kp R       &kp T       &kp S       &kp G           &kp Y       &kp H       &kp A       &kp E       &kp I
-        &l_ctl  &kp Q       &kp X       &kp M       &kp C       &kp V           &kp K       &kp P       &kp MINUS   &kp DOT     &kp FSLH    &r_ctl
-                                        &sk LSHIFT  &kp LMETA   &space_morph_l0 &kp BSPC    &kp RALT    &kp RSHIFT
+                &kp B       &kp L       &kp D       &kp W         &kp Z          &kp DQT     &kp F       &kp O       &kp U       &kp J
+                &kp N       &kp R       &kp T       &kp S         &kp G          &kp Y       &kp H       &kp A       &kp E       &kp I
+        &l_ctl  &kp Q       &kp X       &kp M       &kp C         &kp V          &kp K       &kp P       &s_minus    &s_dot      &s_slash    &r_ctl
+                                        &sk LSHFT   &mt LMETA TAB &spc_L0        &kp BSPC    &kp RALT    &sk RSHFT
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
