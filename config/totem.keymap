@@ -62,14 +62,14 @@
 
         /* l_semi: lctl_semi { */
         /*     compatible = "zmk,behavior-mod-morph"; */
-        /*     #bindings = <0>; */
+        /*     #binding-cells = <0>; */
         /*     bindings = <>, <>; */
         /*     mods = <()>; */
         /* }; */
 
         l_ctl: lctl_morph {
             compatible = "zmk,behavior-mod-morph";
-            #bindings = <0>;
+            #binding-cells = <0>;
             bindings = <&mt LCTRL ESC>, <&kp SEMI>;
             mods = <(MOD_RCTL)>;
         };
