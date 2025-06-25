@@ -97,7 +97,7 @@ label= "BASE"                              ;
 
                 &kp B       &kp L       &kp D       &kp W       &kp Z           &kp DQT     &kp F       &kp O       &kp U       &kp J
                 &kp N       &kp R       &kp T       &kp S       &kp G           &kp Y       &kp H       &kp A       &kp E       &kp I
-    &kp LCTRL   &kp Q       &kp X       &kp M       &kp C       &kp V           &kp K       &kp P       &kp MINUS   &kp DOT     &kp FSLH    &test_r_ctrl
+  &mt LCTRL ESC &kp Q       &kp X       &kp M       &kp C       &kp V           &kp K       &kp P       &kp MINUS   &kp DOT     &kp FSLH    &test_r_ctrl
                                         &kp DEL     &kp LALT    &ctrl_cln       &kp RET     &kp ESC     &kp BSPC
                         >;
                 };
