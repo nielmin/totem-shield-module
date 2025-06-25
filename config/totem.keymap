@@ -32,7 +32,7 @@
 
 / {
     behaviors {
-        ctrl_cln: control_colon {
+        ctl_sc: control_space_colon {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SPACE>, <&kp COLON>;
@@ -46,7 +46,7 @@
             mods = <(MOD_LSFT)>;
         };
 
-        r_ctrl_morph: right_ctrl_morph {
+        r_ctl: right_ctrl_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&r_qmark>, <&kp RET>;
@@ -105,8 +105,8 @@ label= "BASE"                              ;
 
                 &kp B       &kp L       &kp D       &kp W       &kp Z           &kp DQT     &kp F       &kp O       &kp U       &kp J
                 &kp N       &kp R       &kp T       &kp S       &kp G           &kp Y       &kp H       &kp A       &kp E       &kp I
-  &mt LCTRL ESC &kp Q       &kp X       &kp M       &kp C       &kp V           &kp K       &kp P       &kp MINUS   &kp DOT     &kp FSLH    &r_ctrl_morph
-                                        &sl LSHIFT  &kp LMETA   &ctrl_cln       &kp RALT    &kp BSPC    &sl RSHIFT
+  &mt LCTRL ESC &kp Q       &kp X       &kp M       &kp C       &kp V           &kp K       &kp P       &kp MINUS   &kp DOT     &kp FSLH    &r_ctl
+                                        &sk LSHIFT  &kp LMETA   &ctl_sc         &kp RALT    &kp BSPC    &sk RSHIFT
                         >;
                 };
 
