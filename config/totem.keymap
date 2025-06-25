@@ -39,10 +39,18 @@
             mods = <(MOD_LCTL)>;
         };
 
-        test_r_ctrl: right_ctrl_morph {
+        r_qmark: right_qmark {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mt RCTRL ESC>, <&kp RET>;
+            bindings = <&kp RCTRL>, <&kp QMARK>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        r_ctrl_morph: right_ctrl_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&r_qmark>, <&kp RET>;
+            /* bindings = <&mt RCTRL QMARK>, <&kp RET>; */
             mods = <(MOD_LCTL)>;
         };
     };
@@ -97,8 +105,8 @@ label= "BASE"                              ;
 
                 &kp B       &kp L       &kp D       &kp W       &kp Z           &kp DQT     &kp F       &kp O       &kp U       &kp J
                 &kp N       &kp R       &kp T       &kp S       &kp G           &kp Y       &kp H       &kp A       &kp E       &kp I
-  &mt LCTRL ESC &kp Q       &kp X       &kp M       &kp C       &kp V           &kp K       &kp P       &kp MINUS   &kp DOT     &kp FSLH    &test_r_ctrl
-                                        &kp DEL     &kp LALT    &ctrl_cln       &kp RET     &kp ESC     &kp BSPC
+  &mt LCTRL ESC &kp Q       &kp X       &kp M       &kp C       &kp V           &kp K       &kp P       &kp MINUS   &kp DOT     &kp FSLH    &r_ctrl_morph
+                                        &sl LSHIFT  &kp LMETA   &ctrl_cln       & RALT    &kp BSPC    &sl RSHIFT
                         >;
                 };
 
