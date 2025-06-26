@@ -86,21 +86,16 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+       /*
+        *
+        */
+        nav_shft: nav_layer_shift {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&sk LSHFT>, <&mo 1>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        }
     };
-
-    /* macros { */
-    /*     gif: gif { */
-    /*         label = "giphy"; */
-    /*         compatible = "zmk,behavior-macro"; */
-    /*         #binding-cells = <0>; */
-    /*         bindings */
-    /*             = <&macro_press &kp LSHFT> */
-    /*             , <&macro_tap &kp N2> */
-    /*             , <&macro_release &kp LSHFT> */
-    /*             , <&macro_tap &kp G &kp I &kp F> */
-    /*             ; */
-    /*     }; */
-    /* }; */
 
     keymap {
         compatible = "zmk,keymap";
@@ -120,8 +115,9 @@
             bindings = <
                 &kp B       &kp L       &kp D         &kp W       &kp Z          &kp DQT     &kp F       &kp O       &kp U       &kp J
                 &kp N       &kp R       &kp T         &kp S       &kp G          &kp Y       &kp H       &kp A       &kp E       &kp I
-        &l_ctl  &kp Q       &kp X       &kp M         &kp C       &kp V          &kp K       &kp P       &s_minus    &s_dot      &s_slash    &r_ctl
-                                        &mt LMETA TAB &sk LSHFT   &spc_L0        &kp BSPC    &sk RSHFT   &kp RALT
+        &l_ctl  &kp Q       &kp X       &kp M         &kp C       &kp V          &kp K       &kp P       &s_minus    &s_dot      &s_slash   &r_ctl
+                                        &mt LMETA TAB &nav_shft   &spc_L0        &kp BSPC    &nav_shft   &kp RALT
+                                        /* &mt LMETA TAB &sk LSHFT   &spc_L0        &kp BSPC    &sk RSHFT   &kp RALT */
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -140,7 +136,7 @@
             bindings = <
                 &trans      &trans      &trans        &trans      &trans         &trans      &trans      &trans      &trans      &trans
                 &trans      &trans      &trans        &trans      &trans         &trans      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
-        &trans  &trans      &trans      &trans        &trans      &trans         &trans      &trans      &trans      &trans      &trans      &trans
+        &trans  &trans      &trans      &trans        &trans      &trans         &trans      &trans      &trans      &trans      &trans     &trans
                                         &trans        &trans      &trans         &trans      &trans      &trans
             >;
         };
@@ -160,7 +156,7 @@
             bindings = <
                 &trans      &trans      &trans       &trans      &trans          &trans      &trans      &trans      &trans      &trans
                 &trans      &trans      &trans       &trans      &trans          &trans      &trans      &trans      &trans      &trans
-        &trans  &trans      &trans      &trans       &trans      &trans          &trans      &trans      &trans      &trans      &trans      &trans
+        &trans  &trans      &trans      &trans       &trans      &trans          &trans      &trans      &trans      &trans      &trans     &trans
                                         &trans       &trans      &trans          &trans      &trans      &trans
             >;
         };
@@ -180,7 +176,7 @@
             bindings = <
                 &sys_reset  &bt BT_CLR  &out OUT_TOG &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
                 &bootloader &bt BT_NXT  &trans       &trans      &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11 
-        &trans  &trans      &bt BT_PRV  &trans       &trans      &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10     &trans
+        &trans  &trans      &bt BT_PRV  &trans       &trans      &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10    &trans
                                         &trans       &trans      &trans          &trans      &trans      &trans
             >;
         };
