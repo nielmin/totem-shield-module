@@ -134,10 +134,10 @@
         nav_layer {
             label= "NAV";
             bindings = <
-                &trans      &trans      &trans        &trans      &trans         &trans      &trans      &trans      &trans      &trans
-                &trans      &trans      &trans        &trans      &trans         &trans      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
-        &trans  &trans      &trans      &trans        &trans      &trans         &trans      &trans      &trans      &trans      &trans     &trans
-                                        &trans        &trans      &trans         &trans      &trans      &trans
+                &trans      &trans      &trans        &trans      &trans         &kp LS(LG(LEFT)) &kp LS(LG(DOWN)) &kp LS(LG(UP))  &kp LS(LG(RIGHT)) &trans
+                &trans      &trans      &trans        &trans      &trans         &kp LEFT     &kp DOWN     &kp UP      &kp RIGHT     &trans
+        &trans  &trans      &trans      &trans        &trans      &trans         &kp LG(LEFT) &kp LG(DOWN) &kp LG(UP)  &kp LG(RIGHT) &trans     &trans
+                                        &trans        &trans      &trans         &trans       &trans       &trans
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
