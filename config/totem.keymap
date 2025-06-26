@@ -98,6 +98,24 @@
         };
     };
 
+    macros {
+        four_down: four_down_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp N4 &kp DOWN>
+                ;
+        };
+
+        four_up: four_up_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp N4 &kp UP>
+                ;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -118,14 +136,13 @@
                 &kp N       &kp R       &kp T         &kp S       &kp G          &kp Y       &kp H       &kp A       &kp E       &kp I
         &l_ctl  &lt 2 Q     &kp X       &kp M         &kp C       &kp V          &kp K       &kp P       &s_minus    &s_dot      &s_slash   &r_ctl
                                         &mt LMETA TAB &nav_shft   &spc_L0        &kp BSPC    &nav_shft   &kp RALT
-                                        /* &mt LMETA TAB &sk LSHFT   &spc_L0        &kp BSPC    &sk RSHFT   &kp RALT */
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
                ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
                ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
                ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-               ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃   left    ┃   down    ┃    up     ┃   right   ┃
+               ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
    ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
    ┃           ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃           ┃
    ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -135,10 +152,10 @@
         nav_layer {
             label= "NAV";
             bindings = <
-                &trans      &trans      &trans        &trans      &trans         &trans    &kp LS(LG(LEFT)) &kp LS(LG(DOWN)) &kp LS(LG(UP))  &kp LS(LG(RIGHT))
-                &trans      &trans      &trans        &trans      &trans         &trans    &kp LEFT         &kp DOWN     &kp UP      &kp RIGHT
-        &trans  &trans      &trans      &trans        &trans      &trans         &trans    &kp LG(LEFT)     &kp LG(DOWN) &kp LG(UP)  &kp LG(RIGHT) &trans
-                                        &trans        &trans      &trans         &trans    &trans           &trans
+                &trans      &trans      &trans        &trans      &trans         &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans        &trans      &trans         &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans
+        &trans  &trans      &trans      &trans        &trans      &trans         &trans      &four_down  &four_up    &trans      &trans      &trans
+                                        &bt BT_PRV    &trans      &bt BT_NXT     &trans      &trans      &bt BT_CLR
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
