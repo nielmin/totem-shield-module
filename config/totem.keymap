@@ -15,6 +15,12 @@
   /* tapping-term-ms = <170>; */
 };
 
+&lt {
+    tapping-term-ms = <170>;
+    quick-tap-ms = <100>;
+    global-quick-tap;
+};
+
 / {
     behaviors {
        /*   Control Key -associated behavior of certain elements
@@ -40,16 +46,17 @@
         r_qmark: rctl_qmark {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RCTRL>, <&kp QMARK>;
+            bindings = <&mt RCTRL RET>, <&kp QMARK>;
+            /* bindings = <&kp RCTRL>, <&kp QMARK>; */
             mods = <(MOD_LSFT)>;
         };
 
-        r_ctl: rctl_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&r_qmark>, <&kp RET>;
-            mods = <(MOD_LCTL)>;
-        };
+        /* r_ctl: rctl_morph { */
+        /*     compatible = "zmk,behavior-mod-morph"; */
+        /*     #binding-cells = <0>; */
+        /*     bindings = <&r_qmark>, <&kp RET>; */
+        /*     mods = <(MOD_LCTL)>; */
+        /* }; */
 
         l_ctl: lctl_morph {
             compatible = "zmk,behavior-mod-morph";
@@ -84,6 +91,13 @@
             #binding-cells = <0>;
             bindings = <&lt 2 FSLH>, <&kp LT>;
             /* bindings = <&kp FSLH>, <&kp LT>; */
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        s_excl: shift_exclamation {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DQT>, <&kp EXCL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -132,10 +146,10 @@
         base_layer {
             label= "BASE";
             bindings = <
-                &kp B       &kp L       &kp D         &kp W       &kp Z          &kp DQT     &kp F       &kp O       &kp U       &kp J
+                &kp B       &kp L       &kp D         &kp W       &kp Z          &s_excl     &kp F       &kp O       &kp U       &kp J
                 &kp N       &kp R       &kp T         &kp S       &kp G          &kp Y       &kp H       &kp A       &kp E       &kp I
-        &l_ctl  &lt 2 Q     &kp X       &kp M         &kp C       &kp V          &kp K       &kp P       &s_minus    &s_dot      &s_slash   &r_ctl
-                                        &mt LMETA TAB &nav_shft   &spc_L0        &kp BSPC    &nav_shft   &kp RALT
+        &l_ctl  &lt 2 Q     &kp X       &kp M         &kp C       &kp V          &kp K       &kp P       &s_minus    &s_dot      &s_slash   &r_qmark
+                                        &mt LMETA TAB &spc_L0     &nav_shft      &nav_shft   &kp BSPC    &kp RALT
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -155,7 +169,7 @@
                 &trans      &trans      &trans        &trans      &trans         &trans      &trans      &trans      &trans      &trans
                 &trans      &trans      &trans        &trans      &trans         &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans
         &trans  &trans      &trans      &trans        &trans      &trans         &trans      &four_down  &four_up    &trans      &trans      &trans
-                                        &bt BT_PRV    &trans      &bt BT_NXT     &trans      &trans      &bt BT_CLR
+                                        &bt BT_PRV    &bt BT_NXT  &trans         &trans      &trans      &bt BT_CLR
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
