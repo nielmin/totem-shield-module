@@ -94,7 +94,7 @@
             #binding-cells = <0>;
             bindings = <&sk LSHFT>, <&mo 1>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
-        }
+        };
     };
 
     keymap {
