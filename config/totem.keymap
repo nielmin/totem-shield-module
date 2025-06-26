@@ -82,7 +82,8 @@
         s_slash: shift_slash {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp FSLH>, <&kp LT>;
+            bindings = <&lt 2 FSLH>, <&kp LT>;
+            /* bindings = <&kp FSLH>, <&kp LT>; */
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -115,7 +116,7 @@
             bindings = <
                 &kp B       &kp L       &kp D         &kp W       &kp Z          &kp DQT     &kp F       &kp O       &kp U       &kp J
                 &kp N       &kp R       &kp T         &kp S       &kp G          &kp Y       &kp H       &kp A       &kp E       &kp I
-        &l_ctl  &kp Q       &kp X       &kp M         &kp C       &kp V          &kp K       &kp P       &s_minus    &s_dot      &s_slash   &r_ctl
+        &l_ctl  &lt 2 Q     &kp X       &kp M         &kp C       &kp V          &kp K       &kp P       &s_minus    &s_dot      &s_slash   &r_ctl
                                         &mt LMETA TAB &nav_shft   &spc_L0        &kp BSPC    &nav_shft   &kp RALT
                                         /* &mt LMETA TAB &sk LSHFT   &spc_L0        &kp BSPC    &sk RSHFT   &kp RALT */
             >;
@@ -134,10 +135,10 @@
         nav_layer {
             label= "NAV";
             bindings = <
-                &trans      &trans      &trans        &trans      &trans         &kp LS(LG(LEFT)) &kp LS(LG(DOWN)) &kp LS(LG(UP))  &kp LS(LG(RIGHT)) &trans
-                &trans      &trans      &trans        &trans      &trans         &kp LEFT     &kp DOWN     &kp UP      &kp RIGHT     &trans
-        &trans  &trans      &trans      &trans        &trans      &trans         &kp LG(LEFT) &kp LG(DOWN) &kp LG(UP)  &kp LG(RIGHT) &trans     &trans
-                                        &trans        &trans      &trans         &trans       &trans       &trans
+                &trans      &trans      &trans        &trans      &trans         &trans    &kp LS(LG(LEFT)) &kp LS(LG(DOWN)) &kp LS(LG(UP))  &kp LS(LG(RIGHT))
+                &trans      &trans      &trans        &trans      &trans         &trans    &kp LEFT         &kp DOWN     &kp UP      &kp RIGHT
+        &trans  &trans      &trans      &trans        &trans      &trans         &trans    &kp LG(LEFT)     &kp LG(DOWN) &kp LG(UP)  &kp LG(RIGHT) &trans
+                                        &trans        &trans      &trans         &trans    &trans           &trans
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -154,9 +155,9 @@
         sym_layer {
             label= "SYM";
             bindings = <
-                &trans      &trans      &trans       &trans      &trans          &trans      &trans      &trans      &trans      &trans
-                &trans      &trans      &trans       &trans      &trans          &trans      &trans      &trans      &trans      &trans
-        &trans  &trans      &trans      &trans       &trans      &trans          &trans      &trans      &trans      &trans      &trans     &trans
+                &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp TILDE       &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK
+                &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE       &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
+        &trans  &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp BSLH        &kp PLUS    &kp N1      &kp N2      &kp N3     &kp N0     &trans
                                         &trans       &trans      &trans          &trans      &trans      &trans
             >;
         };
