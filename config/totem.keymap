@@ -23,6 +23,18 @@
 
 / {
     behaviors {
+       /*   Custom mod-tap/layer-tap behavior.
+        *   Experimental; subject to revision.
+        */
+        stlt: sticky_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&sk>;
+            display-name = "Sticky-Layer-Tap";
+        };
+
        /*   Control Key -associated behavior of certain elements
         *   implemented as nested mod-morphs.
         *   Perhaps, not the most optimal way to achieve
@@ -120,6 +132,8 @@
     };
 
     macros {
+       /*   Easier navigation macros.
+        */
         four_down: four_down_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -173,10 +187,10 @@
         base_layer {
             label= "BASE";
             bindings = <
-                &kp B       &kp L       &kp D         &kp W       &kp Z         &s_excl    &kp F          &kp O      &kp U       &kp J
-                &kp N       &kp R       &kp T         &kp S       &kp G         &kp Y      &kp H          &kp A      &kp E       &kp I
-    &l_ctl      &kp Q       &kp X       &kp M         &kp C       &kp V         &kp K      &kp P          &s_minus   &s_dot      &s_slash   &mt RCTRL RET
-                                        &mt LMETA TAB &spc_L0     &mo 2         &mo 1      &mt RSHFT BSPC &kp RALT
+                &kp B       &kp L       &kp D         &kp W       &kp Z         &s_excl       &kp F          &kp O      &kp U       &kp J
+                &kp N       &kp R       &kp T         &kp S       &kp G         &kp Y         &kp H          &kp A      &kp E       &kp I
+    &l_ctl      &kp Q       &kp X       &kp M         &kp C       &kp V         &kp K         &kp P          &s_minus   &s_dot      &s_slash   &mt RCTRL RET
+                                        &mt LMETA TAB &spc_L0     &stlt 2 LSHFT &stlt 1 RSHFT &mt RSHFT BSPC &kp RALT
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
