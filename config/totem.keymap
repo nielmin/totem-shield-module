@@ -17,8 +17,8 @@
 
 &lt {
     tapping-term-ms = <170>;
-    quick-tap-ms = <100>;
-    global-quick-tap;
+    /* quick-tap-ms = <100>; */
+    /* global-quick-tap; */
 };
 
 / {
@@ -51,12 +51,12 @@
             mods = <(MOD_LSFT)>;
         };
 
-        /* r_ctl: rctl_morph { */
-        /*     compatible = "zmk,behavior-mod-morph"; */
-        /*     #binding-cells = <0>; */
-        /*     bindings = <&r_qmark>, <&kp RET>; */
-        /*     mods = <(MOD_LCTL)>; */
-        /* }; */
+        //r_ctl: rctl_morph {
+        //    compatible = "zmk,behavior-mod-morph";
+        //    #binding-cells = <0>;
+        //    bindings = <&r_qmark>, <&kp RET>;
+        //    mods = <(MOD_LCTL)>;
+        //};
 
         l_ctl: lctl_morph {
             compatible = "zmk,behavior-mod-morph";
@@ -89,8 +89,8 @@
         s_slash: shift_slash {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&lt 2 FSLH>, <&kp LT>;
-            /* bindings = <&kp FSLH>, <&kp LT>; */
+            /* bindings = <&lt 2 FSLH>, <&kp LT>; */
+            bindings = <&kp FSLH>, <&kp LT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -101,13 +101,20 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-       /*
-        *
+       /*   Experimental mods; might be unused.
+        *   Subject to removal if there is no need for these.
         */
         nav_shft: nav_layer_shift {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&sk LSHFT>, <&mo 1>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+
+        sym_nav_mod: sym_nav_layer_mod {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mo 2>, <&mo 1>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
     };
@@ -117,7 +124,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp N4 &kp DOWN>
+                = <&macro_tap &kp DOWN &kp DOWN &kp DOWN &kp DOWN>
                 ;
         };
 
@@ -146,10 +153,10 @@
         base_layer {
             label= "BASE";
             bindings = <
-                &kp B       &kp L       &kp D         &kp W       &kp Z          &s_excl     &kp F       &kp O       &kp U       &kp J
-                &kp N       &kp R       &kp T         &kp S       &kp G          &kp Y       &kp H       &kp A       &kp E       &kp I
-        &l_ctl  &lt 2 Q     &kp X       &kp M         &kp C       &kp V          &kp K       &kp P       &s_minus    &s_dot      &s_slash   &r_qmark
-                                        &mt LMETA TAB &spc_L0     &nav_shft      &nav_shft   &kp BSPC    &kp RALT
+                &kp B       &kp L       &kp D         &kp W       &kp Z         &s_excl    &kp F           &kp O       &kp U       &kp J
+                &kp N       &kp R       &kp T         &kp S       &kp G         &kp Y      &kp H           &kp A       &kp E       &kp I
+        &l_ctl  &kp Q       &kp X       &kp M         &kp C       &kp V         &kp K      &kp P           &s_minus    &s_dot      &s_slash   &mt RCTRL RET
+                                        &mt LMETA TAB &spc_L0     &mo 2         &mo 1      &mt RSHFT BSPC  &kp RALT
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -169,7 +176,7 @@
                 &trans      &trans      &trans        &trans      &trans         &trans      &trans      &trans      &trans      &trans
                 &trans      &trans      &trans        &trans      &trans         &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans
         &trans  &trans      &trans      &trans        &trans      &trans         &trans      &four_down  &four_up    &trans      &trans      &trans
-                                        &bt BT_PRV    &bt BT_NXT  &trans         &trans      &trans      &bt BT_CLR
+                                        &trans        &trans      &trans         &bt BT_PRV  &bt BT_NXT  &bt BT_CLR
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -186,10 +193,10 @@
         sym_layer {
             label= "SYM";
             bindings = <
-                &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp TILDE       &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK
-                &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE       &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
-        &trans  &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp BSLH        &kp PLUS    &kp N1      &kp N2      &kp N3     &kp N0     &trans
-                                        &trans       &trans      &trans          &trans      &trans      &trans
+                 &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp TILDE      &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK
+                 &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE      &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
+        &kp EXCL &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp BSLH       &kp PLUS    &kp N1      &kp N2      &kp N3     &kp N0     &kp QMARK
+                                         &trans       &trans      &trans         &trans      &trans      &trans
             >;
         };
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------
