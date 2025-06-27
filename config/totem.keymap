@@ -132,7 +132,27 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp N4 &kp UP>
+                = <&macro_tap &kp UP &kp UP &kp UP &kp UP>
+                ;
+        };
+
+        eight_down: eight_down_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap
+                    &kp DOWN &kp DOWN &kp DOWN &kp DOWN
+                    &kp DOWN &kp DOWN &kp DOWN &kp DOWN>
+                ;
+        };
+
+        eight_up: eight_up_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap
+                    &kp UP &kp UP &kp UP &kp UP
+                    &kp UP &kp UP &kp UP &kp UP>
                 ;
         };
     };
@@ -141,22 +161,22 @@
         compatible = "zmk,keymap";
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
               ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-              ┃     b     ┃     l     ┃     d     ┃     w     ┃    z      ┃   ┃     "     ┃     f     ┃     o     ┃     u     ┃     j     ┃
+              ┃     b     ┃     l     ┃     d     ┃     w     ┃    z      ┃   ┃   " (!)   ┃     f     ┃     o     ┃     u     ┃     j     ┃
               ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
               ┃     n     ┃     r     ┃     t     ┃     s     ┃    g      ┃   ┃     y     ┃     h     ┃     a     ┃     e     ┃     i     ┃
   ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-  ┃   LCTRL   ┃     q     ┃     x     ┃     m     ┃     c     ┃    v      ┃   ┃     k     ┃     p     ┃   - (>)   ┃    .(')   ┃   /(<)    ┃   RCTRL   ┃
+  ┃   LCTRL   ┃     q     ┃     x     ┃     m     ┃     c     ┃    v      ┃   ┃     k     ┃     p     ┃   - (>)   ┃   . (')   ┃  / (<)    ┃   RCTRL   ┃
   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-                                      ┃           ┃           ┃ spc(:)(,) ┃   ┃           ┃           ┃           ┃
+                                      ┃           ┃ spc(:)(,) ┃           ┃   ┃           ┃           ┃           ┃
                                       ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 */
         base_layer {
             label= "BASE";
             bindings = <
-                &kp B       &kp L       &kp D         &kp W       &kp Z         &s_excl    &kp F           &kp O       &kp U       &kp J
-                &kp N       &kp R       &kp T         &kp S       &kp G         &kp Y      &kp H           &kp A       &kp E       &kp I
-        &l_ctl  &kp Q       &kp X       &kp M         &kp C       &kp V         &kp K      &kp P           &s_minus    &s_dot      &s_slash   &mt RCTRL RET
-                                        &mt LMETA TAB &spc_L0     &mo 2         &mo 1      &mt RSHFT BSPC  &kp RALT
+                &kp B       &kp L       &kp D         &kp W       &kp Z         &s_excl    &kp F          &kp O      &kp U       &kp J
+                &kp N       &kp R       &kp T         &kp S       &kp G         &kp Y      &kp H          &kp A      &kp E       &kp I
+    &l_ctl      &kp Q       &kp X       &kp M         &kp C       &kp V         &kp K      &kp P          &s_minus   &s_dot      &s_slash   &mt RCTRL RET
+                                        &mt LMETA TAB &spc_L0     &mo 2         &mo 1      &mt RSHFT BSPC &kp RALT
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -173,10 +193,10 @@
         nav_layer {
             label= "NAV";
             bindings = <
-                &trans      &trans      &trans        &trans      &trans         &trans      &trans      &trans      &trans      &trans
-                &trans      &trans      &trans        &trans      &trans         &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans
-        &trans  &trans      &trans      &trans        &trans      &trans         &trans      &four_down  &four_up    &trans      &trans      &trans
-                                        &trans        &trans      &trans         &bt BT_PRV  &bt BT_NXT  &bt BT_CLR
+                &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp TILDE       &trans     &eight_down  &eight_up   &trans      &trans
+                &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE       &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT   &trans
+    &kp EXCL    &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp BSLH        &trans     &four_down   &four_up    &trans      &trans     &trans
+                                        &bt BT_PRV   &bt BT_NXT  &bt BT_CLR      &trans     &none        &none
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -193,19 +213,19 @@
         sym_layer {
             label= "SYM";
             bindings = <
-                 &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp TILDE      &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK
-                 &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE      &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
-        &kp EXCL &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp BSLH       &kp PLUS    &kp N1      &kp N2      &kp N3     &kp N0     &kp QMARK
-                                         &trans       &trans      &trans         &trans      &trans      &trans
+                &kp DEL     &kp F7      &kp F8      &kp F9      &kp F12          &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK
+                &trans      &kp F4      &kp F5      &kp F6      &kp F11          &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
+    &trans      &trans      &kp F1      &kp F2      &kp F3      &kp F10          &kp PLUS    &kp N1      &kp N2      &kp N3     &kp N0      &kp QMARK
+                                        &trans      &trans      &trans           &kp X       &kp B       &kp H
             >;
         };
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------
                ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-               ┃   RESET   ┃ BT CLEAR  ┃  OUT TOG  ┃           ┃           ┃   ┃           ┃    F7     ┃    F8     ┃    F9     ┃    F12    ┃
+               ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
                ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-               ┃ BOOTLOAD  ┃ BT NEXT   ┃           ┃           ┃           ┃   ┃           ┃    F4     ┃    F5     ┃    F6     ┃    F11    ┃
+               ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
    ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-   ┃           ┃           ┃ BT PREV   ┃           ┃           ┃           ┃   ┃           ┃    F1     ┃    F2     ┃    F3     ┃    F10    ┃           ┃
+   ┃           ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃           ┃
    ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
                                        ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
                                        ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -213,9 +233,9 @@
         adjust_layer {
             label= "ADJ";
             bindings = <
-                &sys_reset  &bt BT_CLR  &out OUT_TOG &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
-                &bootloader &bt BT_NXT  &trans       &trans      &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11 
-        &trans  &trans      &bt BT_PRV  &trans       &trans      &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10    &trans
+                &sys_reset   &trans     &trans       &trans      &trans          &trans      &trans      &trans       &trans      &trans
+                &bootloader  &trans     &trans       &trans      &trans          &trans      &trans      &trans       &trans      &trans
+    &trans      &out OUT_TOG &trans     &trans       &trans      &trans          &trans      &trans      &trans       &trans      &trans    &trans
                                         &trans       &trans      &trans          &trans      &trans      &trans
             >;
         };
