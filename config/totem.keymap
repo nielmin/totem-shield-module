@@ -17,9 +17,9 @@
 
 &lt {
     /* tapping-term-ms = <170>; */
-    quick-tap-ms = <150>;
+    /* quick-tap-ms = <150>; */
     flavor = "hold-preferred";
-    /* global-quick-tap; */
+    global-quick-tap;
 };
 
 &sk {
