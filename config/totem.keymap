@@ -11,13 +11,14 @@
 &mt {
   /* quick-tap-ms = <100>; */
   /* global-quick-tap; */
-  flavor = "hold-preferred";
+    flavor = "hold-preferred";
   /* tapping-term-ms = <170>; */
 };
 
 &lt {
-    tapping-term-ms = <170>;
+    /* tapping-term-ms = <170>; */
     quick-tap-ms = <150>;
+    flavor = "hold-preferred";
     /* global-quick-tap; */
 };
 
@@ -167,13 +168,13 @@
         eight_down: eight_down_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp 8 &kp DOWN>;
+            bindings = <&macro_tap &kp N8 &kp DOWN>;
         };
 
         eight_up: eight_up_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp 8 &kp UP>;
+            bindings = <&macro_tap &kp N8 &kp UP>;
         };
     };
 
