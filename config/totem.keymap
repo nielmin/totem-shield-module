@@ -17,7 +17,7 @@
 
 &lt {
     tapping-term-ms = <170>;
-    /* quick-tap-ms = <100>; */
+    quick-tap-ms = <150>;
     /* global-quick-tap; */
 };
 
@@ -30,15 +30,24 @@
        /*   Custom mod-tap/layer-tap behavior.
         *   Experimental; subject to revision.
         */
-        stlt: sticky_layer_tap {
+        slt: sticky_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&sk>;
             display-name = "Sticky-Layer-Tap";
         };
 
+
+        smt: sticky_mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&sk>;
+            display-name = "Sticky-Mod-Tap";
+        };
        /*   Control Key -associated behavior of certain elements
         *   implemented as nested mod-morphs.
         *   Perhaps, not the most optimal way to achieve
@@ -187,7 +196,7 @@
                 &kp B       &kp L       &kp D         &kp W         &kp Z       &s_excl       &kp F          &kp O      &kp U       &kp J
                 &kp N       &kp R       &kp T         &kp S         &kp G       &kp Y         &kp H          &kp A      &kp E       &kp I
     &l_ctl      &kp Q       &kp X       &kp M         &kp C         &kp V       &kp K         &kp P          &s_minus   &s_dot      &s_slash   &mt RCTRL RET
-                                        &mt LMETA TAB &stlt 2 LSHFT &spc_L0     &lt 1 BSPC    &mt RSHFT BSPC &kp RALT
+                                        &mt LMETA TAB &slt 2 LSHFT  &spc_L0     &lt 1 BSPC    &mt RSHFT BSPC &smt RCTRL RALT
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
