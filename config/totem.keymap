@@ -21,6 +21,10 @@
     /* global-quick-tap; */
 };
 
+&sk {
+    quick-release;
+};
+
 / {
     behaviors {
        /*   Custom mod-tap/layer-tap behavior.
