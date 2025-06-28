@@ -5,7 +5,7 @@
 
 #define BASE 0
 #define NAV  1
-#define SYM  2
+#define NSL  2
 #define ADJ  3
 
 &mt {
@@ -49,6 +49,7 @@
             bindings = <&kp>, <&sk>;
             display-name = "Sticky-Mod-Tap";
         };
+
        /*   Control Key -associated behavior of certain elements
         *   implemented as nested mod-morphs.
         *   Perhaps, not the most optimal way to achieve
@@ -58,7 +59,7 @@
         spc_L1: rctl_space {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&kp COMMA>;
+            bindings = <&lt 2 SPACE>, <&kp COMMA>;
             mods = <(MOD_RCTL)>;
         };
 
@@ -73,16 +74,8 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mt RCTRL RET>, <&kp QMARK>;
-            /* bindings = <&kp RCTRL>, <&kp QMARK>; */
             mods = <(MOD_LSFT)>;
         };
-
-        //r_ctl: rctl_morph {
-        //    compatible = "zmk,behavior-mod-morph";
-        //    #binding-cells = <0>;
-        //    bindings = <&r_qmark>, <&kp RET>;
-        //    mods = <(MOD_LCTL)>;
-        //};
 
         l_ctl: lctl_morph {
             compatible = "zmk,behavior-mod-morph";
@@ -127,42 +120,22 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-       /*   Experimental mods; might be unused.
-        *   Subject to removal if there is no need for these.
-        */
-        nav_shft: nav_layer_shift {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&sk LSHFT>, <&mo 1>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
-
-        sym_nav_mod: sym_nav_layer_mod {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mo 2>, <&mo 1>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
     };
 
     macros {
        /*   Easier navigation macros.
-        *   Subject to removal if there is no need for these.
+        *
         */
         four_down: four_down_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp DOWN &kp DOWN &kp DOWN &kp DOWN>
-                ;
+            bindings = <&macro_tap &kp DOWN &kp DOWN &kp DOWN &kp DOWN>;
         };
 
         four_up: four_up_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp UP &kp UP &kp UP &kp UP>
-                ;
+            bindings = <&macro_tap &kp UP &kp UP &kp UP &kp UP>;
         };
 
         eight_down: eight_down_macro {
@@ -194,10 +167,10 @@
         base_layer {
             label= "BASE";
             bindings = <
-                &kp B       &kp L       &kp D         &kp W         &kp Z       &s_excl       &kp F          &kp O      &kp U       &kp J
-                &kp N       &kp R       &kp T         &kp S         &kp G       &kp Y         &kp H          &kp A      &kp E       &kp I
-    &l_ctl      &kp Q       &kp X       &kp M         &kp C         &kp V       &kp K         &kp P          &s_minus   &s_dot      &s_slash   &mt RCTRL RET
-                                        &mt LMETA TAB &slt 2 LSHFT  &spc_L0     &lt 1 BSPC    &mt RSHFT BSPC &smt RCTRL RALT
+                &kp B       &kp L       &kp D         &kp W         &kp Z       &s_excl        &kp F           &kp O      &kp U       &kp J
+                &kp N       &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E       &kp I
+    &l_ctl      &kp Q       &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot      &s_slash   &mt RCTRL RET
+                                        &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mt RCTRL BSPC &smt RSHFT RALT &mo 3
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -214,9 +187,9 @@
         nav_layer {
             label= "NAV";
             bindings = <
-                &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp TILDE       &trans     &eight_down  &eight_up   &trans      &trans
-                &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE       &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT   &trans
-    &kp EXCL    &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp BSLH        &trans     &four_down   &four_up    &trans      &trans     &trans
+                &trans      &trans      &trans       &trans      &trans          &trans     &eight_down  &eight_up   &trans      &trans
+                &trans      &trans      &trans       &trans      &trans          &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT   &trans
+    &trans      &trans      &trans      &trans       &trans      &trans          &trans     &four_down   &four_up    &trans      &trans     &trans
                                         &trans       &trans      &trans          &trans     &trans       &trans
             >;
         };
@@ -231,13 +204,13 @@
                                        ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
                                        ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 */
-        sym_layer {
-            label= "SYM";
+        num_sym_layer {
+            label= "NSL";
             bindings = <
-                &kp DEL     &kp F7      &kp F8      &kp F9      &kp F12          &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK
-                &bt BT_NXT  &kp F4      &kp F5      &kp F6      &kp F11          &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
-    &bt BT_CLR  &bt BT_PRV  &kp F1      &kp F2      &kp F3      &kp F10          &kp PLUS    &kp N1      &kp N2      &kp N3     &kp N0      &kp QMARK
-                                        &trans      &trans      &trans           &trans      &trans      &trans
+                &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp TILDE       &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK
+                &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE       &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
+    &kp EXCL    &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp BSLH        &kp PLUS    &kp N1      &kp N2      &kp N3     &kp N0      &kp QMARK
+                                        &trans       &trans      &trans          &trans      &trans      &trans
             >;
         };
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -254,11 +227,23 @@
         adjust_layer {
             label= "ADJ";
             bindings = <
-                &sys_reset   &trans     &trans       &trans      &trans          &trans      &trans      &trans       &trans      &trans
-                &bootloader  &trans     &trans       &trans      &trans          &trans      &trans      &trans       &trans      &trans
-    &trans      &out OUT_TOG &trans     &trans       &trans      &trans          &trans      &trans      &trans       &trans      &trans    &trans
+                &sys_reset   &bt DEL    &trans       &trans      &trans          &trans      &trans      &trans       &trans      &trans
+                &bootloader  &bt BT_NXT &trans       &trans      &trans          &trans      &trans      &trans       &trans      &trans
+    &trans      &out OUT_TOG &bt BT_PRV &trans       &trans      &trans          &trans      &trans      &trans       &trans      &trans    &trans
                                         &trans       &trans      &trans          &trans      &trans      &trans
             >;
         };
     };
 };
+//
+/* Ex-nav layer */
+/*                 &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp TILDE       &trans     &eight_down  &eight_up   &trans      &trans */
+/*                 &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE       &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT   &trans */
+/*     &kp EXCL    &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp BSLH        &trans     &four_down   &four_up    &trans      &trans     &trans */
+/*                                         &trans       &trans      &trans          &trans     &trans       &trans */
+//
+/* Ex-sym layer */
+/*                 &kp DEL     &kp F7      &kp F8      &kp F9      &kp F12          &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK */
+/*                 &bt BT_NXT  &kp F4      &kp F5      &kp F6      &kp F11          &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL */
+/*     &bt BT_CLR  &bt BT_PRV  &kp F1      &kp F2      &kp F3      &kp F10          &kp PLUS    &kp N1      &kp N2      &kp N3     &kp N0      &kp QMARK */
+/*                                         &trans      &trans      &trans           &trans      &trans      &trans */
