@@ -133,6 +133,7 @@
 
     macros {
        /*   Easier navigation macros.
+        *   Subject to removal if there is no need for these.
         */
         four_down: four_down_macro {
             compatible = "zmk,behavior-macro";
@@ -153,21 +154,13 @@
         eight_down: eight_down_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap
-                    &kp DOWN &kp DOWN &kp DOWN &kp DOWN
-                    &kp DOWN &kp DOWN &kp DOWN &kp DOWN>
-                ;
+            bindings = <&macro_tap &kp 8 &kp DOWN>;
         };
 
         eight_up: eight_up_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap
-                    &kp UP &kp UP &kp UP &kp UP
-                    &kp UP &kp UP &kp UP &kp UP>
-                ;
+            bindings = <&macro_tap &kp 8 &kp UP>;
         };
     };
 
@@ -187,10 +180,10 @@
         base_layer {
             label= "BASE";
             bindings = <
-                &kp B       &kp L       &kp D         &kp W       &kp Z         &s_excl       &kp F          &kp O      &kp U       &kp J
-                &kp N       &kp R       &kp T         &kp S       &kp G         &kp Y         &kp H          &kp A      &kp E       &kp I
-    &l_ctl      &kp Q       &kp X       &kp M         &kp C       &kp V         &kp K         &kp P          &s_minus   &s_dot      &s_slash   &mt RCTRL RET
-                                        &mt LMETA TAB &spc_L0     &stlt 2 LSHFT &stlt 1 RSHFT &mt RSHFT BSPC &kp RALT
+                &kp B       &kp L       &kp D         &kp W         &kp Z       &s_excl       &kp F          &kp O      &kp U       &kp J
+                &kp N       &kp R       &kp T         &kp S         &kp G       &kp Y         &kp H          &kp A      &kp E       &kp I
+    &l_ctl      &kp Q       &kp X       &kp M         &kp C         &kp V       &kp K         &kp P          &s_minus   &s_dot      &s_slash   &mt RCTRL RET
+                                        &mt LMETA TAB &stlt 2 LSHFT &spc_L0     &lt 1 BSPC    &mt RSHFT BSPC &kp RALT
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -210,7 +203,7 @@
                 &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp TILDE       &trans     &eight_down  &eight_up   &trans      &trans
                 &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE       &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT   &trans
     &kp EXCL    &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp BSLH        &trans     &four_down   &four_up    &trans      &trans     &trans
-                                        &bt BT_PRV   &bt BT_NXT  &bt BT_CLR      &trans     &none        &none
+                                        &trans       &trans      &trans          &trans     &trans       &trans
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
@@ -228,9 +221,9 @@
             label= "SYM";
             bindings = <
                 &kp DEL     &kp F7      &kp F8      &kp F9      &kp F12          &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK
-                &trans      &kp F4      &kp F5      &kp F6      &kp F11          &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
-    &trans      &trans      &kp F1      &kp F2      &kp F3      &kp F10          &kp PLUS    &kp N1      &kp N2      &kp N3     &kp N0      &kp QMARK
-                                        &trans      &trans      &trans           &kp X       &kp B       &kp H
+                &bt BT_NXT  &kp F4      &kp F5      &kp F6      &kp F11          &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
+    &bt BT_CLR  &bt BT_PRV  &kp F1      &kp F2      &kp F3      &kp F10          &kp PLUS    &kp N1      &kp N2      &kp N3     &kp N0      &kp QMARK
+                                        &trans      &trans      &trans           &trans      &trans      &trans
             >;
         };
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------
