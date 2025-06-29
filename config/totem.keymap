@@ -9,10 +9,10 @@
 #define ADJ  3
 
 &mt {
-  /* quick-tap-ms = <100>; */
-  /* global-quick-tap; */
-    flavor = "hold-preferred";
   /* tapping-term-ms = <170>; */
+  /* quick-tap-ms = <100>; */
+    flavor = "hold-preferred";
+  /* global-quick-tap; */
 };
 
 &lt {
@@ -29,7 +29,8 @@
 / {
     behaviors {
        /*   Custom mod-tap/layer-tap behavior.
-        *   Experimental; subject to revision.
+        *   The main idea is to accomodate
+        *   the one-shot (i.e. sticky) mods.
         */
         slt: sticky_layer_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -40,7 +41,6 @@
             display-name = "Sticky-Layer-Tap";
         };
 
-
         smt: sticky_mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -50,11 +50,11 @@
             display-name = "Sticky-Mod-Tap";
         };
 
-       /*   Control Key -associated behavior of certain elements
-        *   implemented as nested mod-morphs.
-        *   Perhaps, not the most optimal way to achieve
-        *   the desired mode of operation. Thus, subject
-        *   to revision.
+       /*   CTRL -based behavior of what would normally be a plain SPACE.
+        *   Implemented as nested mod-morphs. The main idea is that `space`
+        *   and `comma` are among the most commonly typed characters; hence
+        *   their optimized placement (again, not without some individual
+        *   preferences).
         */
         spc_L1: rctl_space {
             compatible = "zmk,behavior-mod-morph";
@@ -70,25 +70,11 @@
             mods = <(MOD_LCTL)>;
         };
 
-        r_qmark: rctl_qmark {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mt RCTRL RET>, <&kp QMARK>;
-            mods = <(MOD_LSFT)>;
-        };
-
-        l_ctl: lctl_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mt LCTRL ESC>, <&kp SEMI>;
-            mods = <(MOD_RCTL)>;
-        };
-
        /*   Quasi-Shift behavior for certain keys.
         *   In the traditional QWERTY layout/keyboard proper,
         *   pairs of non-alphanumeric symbols seem to be tightly coupled
-        *   with one another via Shift Mod Key (e.g. / and ? )
-        *   There might be an easier way to handle the decoupling in ZMK,
+        *   with one another via Shift Mod Key (e.g. / and ? ).
+        *   In ZMK, there could actually be an easier way to decouple them,
         *   and, as such, this schema is also subject to revision.
         */
         s_minus: shift_minus {
@@ -108,24 +94,21 @@
         s_slash: shift_slash {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            /* bindings = <&lt 2 FSLH>, <&kp LT>; */
             bindings = <&kp FSLH>, <&kp LT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        s_excl: shift_exclamation {
+        s_semi: shift_semicolon {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DQT>, <&kp EXCL>;
+            bindings = <&kp DQT>, <&kp SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
     };
 
     macros {
-       /*   Easier navigation macros.
-        *
-        */
+       /*   Easier navigation macros.  */
         four_down: four_down_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -151,59 +134,46 @@
         };
     };
 
-    keymap {
-        compatible = "zmk,keymap";
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
+               The lack of comments in this section is intentional; there's
+               two reasons for that:
+               - The arrangement of keys (e.g. my, a bit unusual, preference
+               of the semicolon symbol location/key sequence), are based
+               on individual preferences.
+               - Layouts are similar; there's a bit more uniformity to this
+               but not that it warrants extensive documentation.
               ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-              ┃     b     ┃     l     ┃     d     ┃     w     ┃    z      ┃   ┃   " (!)   ┃     f     ┃     o     ┃     u     ┃     j     ┃
+              ┃     b     ┃     l     ┃     d     ┃     w     ┃    z      ┃   ┃     "     ┃     f     ┃     o     ┃     u     ┃     j     ┃
               ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
               ┃     n     ┃     r     ┃     t     ┃     s     ┃    g      ┃   ┃     y     ┃     h     ┃     a     ┃     e     ┃     i     ┃
   ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-  ┃   LCTRL   ┃     q     ┃     x     ┃     m     ┃     c     ┃    v      ┃   ┃     k     ┃     p     ┃   - (>)   ┃   . (')   ┃  / (<)    ┃   RCTRL   ┃
+  ┃   LCTRL   ┃     q     ┃     x     ┃     m     ┃     c     ┃    v      ┃   ┃     k     ┃     p     ┃   - (>)   ┃   . (')   ┃  / (<)    ┃    RET    ┃
   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-                                      ┃           ┃ spc(:)(,) ┃           ┃   ┃           ┃           ┃           ┃
+                                      ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
                                       ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 */
+    keymap {
+        compatible = "zmk,keymap";
         base_layer {
             label= "BASE";
             bindings = <
-                &kp B       &kp L       &kp D         &kp W         &kp Z       &s_excl        &kp F           &kp O      &kp U       &kp J
-                &kp N       &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E       &kp I
-    &l_ctl      &kp Q       &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot      &s_slash   &mt RCTRL RET
-                                        &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mt RCTRL BSPC &smt RSHFT RALT &mo 3
+                  &kp B     &kp L       &kp D         &kp W         &kp Z       &s_semi        &kp F           &kp O      &kp U   &kp J
+                  &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
+    &mt LCTRL ESC &kp Q     &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot  &s_slash  &kp RET
+                                        &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mt RCTRL BSPC &smt RSHFT RALT &kp RSHFT(LMETA)
             >;
         };
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
-               ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-               ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
-               ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-               ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
-   ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-   ┃           ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃           ┃
-   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-                                       ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
-                                       ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-*/
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
         nav_layer {
             label= "NAV";
             bindings = <
-                &trans      &trans      &trans       &trans      &trans          &trans     &eight_down  &eight_up   &trans      &trans
-                &trans      &trans      &trans       &trans      &trans          &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT   &trans
-    &trans      &trans      &trans      &trans       &trans      &trans          &trans     &four_down   &four_up    &trans      &trans     &trans
+                &bt DEL     &trans      &trans       &trans      &trans          &trans     &eight_down  &eight_up   &trans      &trans
+                &bt BT_NXT  &trans      &trans       &trans      &trans          &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT   &trans
+    &trans      &bt BT_PRV  &trans      &trans       &trans      &trans          &trans     &four_down   &four_up    &trans      &trans     &trans
                                         &trans       &trans      &trans          &trans     &trans       &trans
             >;
         };
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
-               ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-               ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
-               ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-               ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
-   ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-   ┃           ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃           ┃
-   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-                                       ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
-                                       ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-*/
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
         num_sym_layer {
             label= "NSL";
             bindings = <
@@ -213,17 +183,7 @@
                                         &trans       &trans      &trans          &trans      &trans      &trans
             >;
         };
-/* ----------------------------------------------------------------------------------------------------------------------------------------------------
-               ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-               ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
-               ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-               ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃
-   ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-   ┃           ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃           ┃
-   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-                                       ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
-                                       ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-*/
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
         adjust_layer {
             label= "ADJ";
             bindings = <
@@ -235,15 +195,3 @@
         };
     };
 };
-//
-/* Ex-nav layer */
-/*                 &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp TILDE       &trans     &eight_down  &eight_up   &trans      &trans */
-/*                 &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE       &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT   &trans */
-/*     &kp EXCL    &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp BSLH        &trans     &four_down   &four_up    &trans      &trans     &trans */
-/*                                         &trans       &trans      &trans          &trans     &trans       &trans */
-//
-/* Ex-sym layer */
-/*                 &kp DEL     &kp F7      &kp F8      &kp F9      &kp F12          &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK */
-/*                 &bt BT_NXT  &kp F4      &kp F5      &kp F6      &kp F11          &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL */
-/*     &bt BT_CLR  &bt BT_PRV  &kp F1      &kp F2      &kp F3      &kp F10          &kp PLUS    &kp N1      &kp N2      &kp N3     &kp N0      &kp QMARK */
-/*                                         &trans      &trans      &trans           &trans      &trans      &trans */
