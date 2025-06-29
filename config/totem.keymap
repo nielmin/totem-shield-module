@@ -160,7 +160,7 @@
                   &kp B     &kp L       &kp D         &kp W         &kp Z       &s_semi        &kp F           &kp O      &kp U   &kp J
                   &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
     &mt LCTRL ESC &kp Q     &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot  &s_slash  &kp RET
-                                        &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mt RCTRL BSPC &smt RSHFT RALT &kp N
+                                        &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mt RCTRL BSPC &smt RSHFT RALT &kp RS(LMETA)
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
