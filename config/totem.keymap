@@ -10,15 +10,15 @@
 
 &mt {
   /* tapping-term-ms = <170>; */
-  /* quick-tap-ms = <100>; */
-    flavor = "hold-preferred";
+    quick-tap-ms = <150>;
+    /* flavor = "hold-preferred"; */
   /* global-quick-tap; */
 };
 
 &lt {
     /* tapping-term-ms = <170>; */
     /* quick-tap-ms = <150>; */
-    flavor = "tap-preferred";
+    /* flavor = "tap-preferred"; */
     /* global-quick-tap; */
     require-prior-idle-ms = <150>;
 };
@@ -36,8 +36,9 @@
         slt: sticky_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
             tapping-term-ms = <200>;
+            require-prior-idle-ms = <150>;
             bindings = <&mo>, <&sk>;
             display-name = "Sticky-Layer-Tap";
         };
@@ -81,14 +82,14 @@
         s_minus: shift_minus {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp MINUS>, <&kp GT>;
+            bindings = <&kp MINUS>, <&kp PLUS>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         s_dot: shift_dot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp APOS>;
+            bindings = <&kp DOT>, <&kp GT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -99,10 +100,10 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        s_semi: shift_semicolon {
+        s_quote: shift_quotes {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DQT>, <&kp SEMI>;
+            bindings = <&kp DQT>, <&kp APOS>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -141,7 +142,7 @@
               ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
               ┃     n     ┃     r     ┃     t     ┃     s     ┃    g      ┃   ┃     y     ┃     h     ┃     a     ┃     e     ┃     i     ┃
   ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-  ┃   LCTRL   ┃     q     ┃     x     ┃     m     ┃     c     ┃    v      ┃   ┃     k     ┃     p     ┃   - (>)   ┃   . (')   ┃  / (<)    ┃    RET    ┃
+  ┃   LCTRL   ┃     q     ┃     x     ┃     m     ┃     c     ┃    v      ┃   ┃     k     ┃     p     ┃   - (+)   ┃   . (>)   ┃  / (<)    ┃    RET    ┃
   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
                                       ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
                                       ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -151,7 +152,7 @@
         base_layer {
             label= "BASE";
             bindings = <
-                  &kp B     &kp L       &kp D         &kp W         &kp Z       &s_semi        &kp F           &kp O      &kp U   &kp J
+                  &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F           &kp O      &kp U   &kp J
                   &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
     &mt LCTRL ESC &kp Q     &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot  &s_slash  &lt 3 RET
                                         &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mt RCTRL BSPC &smt RSHFT RALT &kp RS(LMETA)
@@ -163,7 +164,7 @@
             bindings = <
                 &trans     &kp LG(N7)  &kp LG(N8)   &kp LG(N9)  &trans          &trans     &eight_down  &eight_up   &trans      &kp DEL
                 &trans     &kp LG(N4)  &kp LG(N5)   &kp LG(N6)  &trans          &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT   &trans
-    &trans      &trans     &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &trans     &four_down   &four_up    &trans      &trans     &trans
+    &trans      &trans     &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &trans     &four_down   &four_up    &trans      &trans     &kp SEMI
                                        &trans       &trans      &trans          &trans     &trans       &trans
             >;
         };
