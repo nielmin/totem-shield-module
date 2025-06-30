@@ -17,10 +17,10 @@
 
 &lt {
     /* tapping-term-ms = <170>; */
-    /* quick-tap-ms = <150>; */
+    quick-tap-ms = <250>;
     /* flavor = "tap-preferred"; */
     /* global-quick-tap; */
-    require-prior-idle-ms = <150>;
+    require-prior-idle-ms = <250>;
 };
 
 &sk {
@@ -38,7 +38,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <250>;
             bindings = <&mo>, <&sk>;
             display-name = "Sticky-Layer-Tap";
         };
@@ -103,7 +103,7 @@
         s_quote: shift_quotes {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DQT>, <&kp APOS>;
+            bindings = <&kp APOS>, <&kp DQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
