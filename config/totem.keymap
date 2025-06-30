@@ -135,13 +135,6 @@
     };
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
-               The lack of comments in this section is intentional; there's
-               two reasons for that:
-               - The arrangement of keys (e.g. my, a bit unusual, preference
-               of the semicolon symbol location/key sequence), are based
-               on individual preferences.
-               - Layouts are similar; there's a bit more uniformity to this
-               but not that it warrants extensive documentation.
               ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
               ┃     b     ┃     l     ┃     d     ┃     w     ┃    z      ┃   ┃     "     ┃     f     ┃     o     ┃     u     ┃     j     ┃
               ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
