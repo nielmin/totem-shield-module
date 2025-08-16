@@ -32,12 +32,21 @@
        /*
         *
         */
-        caps_td: caps_tap_dance {
+        caps_tdr: caps_tap_dance_right {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&smt RSHFT RALT>, <&caps_word>;
         };
+
+        caps_tdl: caps_tap_dance_left {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&slt 1 LSHFT>, <&caps_word>;
+        };
+
+
        /*   Custom mod-tap/layer-tap behavior.
         *   The main idea is to accomodate
         *   the one-shot (i.e. sticky) mods.
@@ -176,7 +185,7 @@
                   &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F           &kp O      &kp U   &kp J
                   &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
     &mt LCTRL ESC &kp Q     &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot  &s_slash  &lt 3 RET
-                                        &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mm_ctrl_bspc  &caps_td        &kp RS(LMETA)
+                                        &mt LMETA TAB &caps_tdl     &spc_L0     &mm_ctrl_bspc  &caps_tdr       &kp RS(LMETA)
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
