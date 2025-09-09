@@ -32,6 +32,8 @@
   quick-release;
 };
 
+&caps_word {};
+
 / {
 
         keymap {
