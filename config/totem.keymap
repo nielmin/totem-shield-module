@@ -161,8 +161,8 @@ label= "ADJ"                               ;
 // ╷           ╷           ╷           ╷              ╷        ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                 &sys_reset  &bt BT_CLR  &out OUT_TOG  &trans   &trans          &trans      &trans      &trans      &trans      &trans
-                &bootloader &bt NXT     &trans        &trans   &trans          &trans      &trans      &trans      &trans      &trans
-    &trans      &trans      &bt PRV     &trans        &trans   &trans          &trans      &trans      &trans      &trans      &trans  &trans
+                &bootloader &bt BT_NXT  &trans        &trans   &trans          &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &bt BT_PRV  &trans        &trans   &trans          &trans      &trans      &trans      &trans      &trans  &trans
                                         &trans        &trans   &trans          &trans      &trans      &trans
                         >;
                 };
