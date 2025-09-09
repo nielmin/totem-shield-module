@@ -136,7 +136,7 @@ label= "SYM"                               ;
 
                 &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp ASTRK   &kp UNDER   &kp DQT
                 &kp GRAVE   &kp TILDE   &kp LBRC    &kp LPAR    &kp LBKT        &kp COLON   &sk RSHFT   &sk RCTL    &sk RALT    &sk RGUI
-    &trans      &kp LT      &kp RT      &kp RBRC    &kp RPAR    &trans          &kp PIPE    &kp MINUS   &kp EQUAL   &kp PLUS    &kp BSLH   &trans
+    &trans      &kp LT      &kp RT      &kp RBRC    &trans      &trans          &kp PIPE    &kp MINUS   &kp EQUAL   &kp PLUS    &kp BSLH   &trans
                                         &trans      &gif        &mo ADJ         &trans      &kp C_PP    &trans      
                         >;
                 };
