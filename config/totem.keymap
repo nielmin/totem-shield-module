@@ -58,7 +58,7 @@ label= "BASE"                              ;
 
                 &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SEMI
                 &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
-    &mo ADJ     &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &kp FSLH    &kp BSPC
+    &none       &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &kp FSLH    &none
                                         &none       &mo NAV     &kp SPACE       &kp RSHFT   &mo SYM     &none
                         >;
                 };
@@ -84,7 +84,7 @@ label= "NAV"                               ;
 
                 &kp ESC     &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &trans          &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
                 &sk LGUI    &sk LALT     &sk LCTL    &sk LSHFT    &key_repeat     &kp PG_DN   &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
-    &trans      &kp LC(Z)   &kp LC(X)    &kp LC(C)   &kp TAB      &kp LC(V)       &trans      &kp BSPC    &kp TAB     &trans      &kp RET     &trans
+    &trans      &kp LC(Z)   &kp LC(X)    &kp LC(C)   &kp TAB      &kp LC(V)       &tog ADJ    &kp BSPC    &kp TAB     &trans      &kp RET     &trans
                                          &none       &trans       &none           &none       &trans      &none
                         >;
                 };
