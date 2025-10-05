@@ -34,6 +34,16 @@
 
 &caps_word {};
 
+combos {
+  compatible = "zmk,combos";
+  combo_caps_word {
+    timeout-ms = <50>;
+    key-positions = <13 16>;
+    layers = <3>;
+    bindings = <&caps_word>;
+  };
+};
+
 / {
 
         keymap {
