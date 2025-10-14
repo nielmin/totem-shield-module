@@ -66,7 +66,7 @@ label= "BASE"                              ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SEMI
+                &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SQT
                 &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
     &none       &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &kp FSLH    &none
                                         &none       &mo NAV     &kp SPACE       &kp RSHFT   &mo SYM     &none
@@ -118,7 +118,7 @@ label= "SYM"                               ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp EXCL    &kp AT       &kp HASH    &kp DLLR     &kp PRCNT       &kp CARET   &kp AMPS    &kp STAR    &kp UNDER   &kp SQT
+                &kp EXCL    &kp AT       &kp HASH    &kp DLLR     &kp PRCNT       &kp CARET   &kp AMPS    &kp STAR    &kp UNDER   &kp SEMI
                 &kp GRAVE   &kp TILDE    &kp LBRC    &kp LPAR     &kp LBKT        &kp COLON   &sk RSHFT   &sk RCTL    &sk RALT    &sk RGUI
     &trans      &kp LT      &kp GT       &kp RBRC    &kp RPAR     &kp RBKT        &kp PIPE    &kp MINUS   &kp EQUAL   &kp PLUS    &kp BSLH     &trans
                                          &none       &mo NFN      &none           &none       &trans      &none
