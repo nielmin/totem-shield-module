@@ -118,9 +118,9 @@ label= "NAV"                               ;
  bindings = <
 // ╷           ╷            ╷            ╷           ╷            ╷          ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp ESC     &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &trans          &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
+                &kp ESC     &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &mo ADJ         &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
                 &sk LGUI    &sk LALT     &sk LCTL    &sk LSHFT    &key_repeat     &kp PG_DN   &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
-    &trans      &kp LC(Z)   &kp LC(X)    &kp LC(C)   &kp TAB      &kp LC(V)       &mo ADJ     &kp BSPC    &kp TAB     &tog TEST   &kp RET     &trans
+    &trans      &kp LC(Z)   &kp LC(X)    &kp LC(C)   &kp TAB      &kp LC(V)       &tog TEST   &kp BSPC    &kp TAB     &none       &kp RET     &trans
                                          &none       &trans       &none           &none       &mo NFN     &none
                         >;
                 };
