@@ -101,7 +101,7 @@ label= "TEST"                              ;
 
                 &kp B       &kp L       &kp D       &kp C       &kp V           &kp J       &kp Y       &kp O       &kp U       &kp COMMA
                 &kp N       &kp R       &kp T       &kp S       &kp G           &kp P       &kp H       &kp A       &kp E       &kp I
-    &none       &kp Z       &kp Q       &kp M       &kp W       &kp Z           &kp K       &kp F       &kp SQT     &kp SEMI    &kp DOT    &none
+    &none       &kp X       &kp Q       &kp M       &kp W       &kp Z           &kp K       &kp F       &kp SQT     &kp SEMI    &kp DOT    &none
                                         &none       &mo NAV     &kp SPACE       &kp RSHFT   &mo SYM     &none
                         >;
                 };
