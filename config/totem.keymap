@@ -113,20 +113,20 @@ label= "TEST"                              ;
 label= "NAV"                               ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃   ESC     ┃ C_VOL_DN  ┃  C_MUTE   ┃ C_VOL_UP  ┃           ┃   ┃   PG_UP   ┃    INS    ┃   HOME    ┃    END    ┃    DEL    ┃
+//             ┃   ESC     ┃ C_VOL_DN  ┃  C_MUTE   ┃ C_VOL_UP  ┃ TOG TEST  ┃   ┃   PG_UP   ┃    INS    ┃   HOME    ┃    END    ┃    DEL    ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
 //             ┃   LGUI    ┃   LALT    ┃   LCTL    ┃   LSHFT   ┃  REPEAT   ┃   ┃   PG_DN   ┃   LEFT    ┃   DOWN    ┃    UP     ┃  RIGHT    ┃
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-// ┃           ┃   UNDO    ┃   CUT     ┃   COPY    ┃   TAB     ┃  PASTE    ┃   ┃           ┃   BSPC    ┃   TAB     ┃           ┃    RET    ┃           ┃
+// ┃           ┃   UNDO    ┃   CUT     ┃   COPY    ┃   TAB     ┃  PASTE    ┃   ┃           ┃   BSPC    ┃   TAB     ┃   MO ADJ  ┃    RET    ┃           ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 //                                     ┃           ┃    TAB    ┃    SPC    ┃   ┃    DEL    ┃     0     ┃           ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷            ╷            ╷           ╷            ╷          ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp ESC     &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &mo ADJ         &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
+                &kp ESC     &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &tog TEST       &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
                 &sk LGUI    &sk LALT     &sk LCTL    &sk LSHFT    &key_repeat     &kp PG_DN   &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
-    &trans      &tog MSE    &kp LC(X)    &kp LC(C)   &kp TAB      &kp LC(V)       &tog TEST   &kp BSPC    &kp TAB     &none       &kp RET     &trans
+    &trans      &tog MSE    &kp LC(X)    &kp LC(C)   &kp TAB      &kp LC(V)       &none       &kp BSPC    &kp TAB     &mo ADJ     &kp RET     &trans
                                          &none       &trans       &none           &none       &mo NFN     &none
                         >;
                 };
