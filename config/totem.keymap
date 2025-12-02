@@ -32,7 +32,7 @@
 &mt {
   //global-quick-tap;
   flavor = "tap-preferred";
-  tapping-term-ms = <150>;
+  tapping-term-ms = <170>;
 };
 
 &sk {
