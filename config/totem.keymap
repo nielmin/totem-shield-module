@@ -30,7 +30,7 @@
 #define MSE  6
 
 &mt {
-  global-quick-tap;
+  //global-quick-tap;
   flavor = "tap-preferred";
   tapping-term-ms = <150>;
 };
