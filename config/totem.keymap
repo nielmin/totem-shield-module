@@ -42,6 +42,11 @@
 &caps_word {};
 
 / {
+     kscan: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        wakeup-source;
+     };
         combos {
             compatible = "zmk,combos";
             combo_caps_word {
