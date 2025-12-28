@@ -31,12 +31,8 @@
 
 &mt {
   //global-quick-tap;
-  flavor = "tap-preferred";
+  flavor = "balanced";
   tapping-term-ms = <170>;
-};
-
-&sk {
-  quick-release;
 };
 
 &caps_word {};
