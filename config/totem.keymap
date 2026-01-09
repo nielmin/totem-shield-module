@@ -17,9 +17,8 @@
 #define MSE  6
 
 &mt {
-  //global-quick-tap;
   flavor = "balanced";
-  tapping-term-ms = <170>;
+  tapping-term-ms = <160>;
 };
 
 / {
