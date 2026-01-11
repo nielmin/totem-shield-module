@@ -9,12 +9,11 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define BASE 0
-#define TEST 1
-#define NAV  2
-#define SYM  3
-#define NFN  4
-#define ADJ  5
-#define MSE  6
+#define NAV  1
+#define SYM  2
+#define NFN  3
+#define ADJ  4
+#define MSE  5
 
 &mt {
   flavor = "balanced";
@@ -35,23 +34,12 @@
         >;
     };
 
-    test_layer {
-      label= "TEST";
-      bindings = <
-                &kp Q       &kp W       &kp F       &kp P       &kp B           &kp J       &kp L       &kp U       &kp Y       &kp SQT
-                &kp A       &kp R       &kp S       &kp T       &kp G           &kp M       &kp N       &kp E       &kp I       &kp O
-    &none       &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &kp FSLH    &none
-                                        &none       &mo NAV     &kp SPACE       &kp RSHFT   &mo SYM     &none
-        >;
-
-    };
-    
     nav_layer {
       label= "NAV";
       bindings = <
-                &kp ESC     &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &tog TEST       &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
+                &kp ESC     &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &tog MSE        &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
                 &sk LGUI    &sk LALT     &sk LCTL    &sk LSHFT    &key_repeat     &kp PG_DN   &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
-    &trans      &tog MSE    &kp LC(X)    &kp LC(C)   &kp TAB      &kp LC(V)       &none       &kp BSPC    &kp TAB     &mo ADJ     &kp RET     &trans
+    &trans      &none       &kp LC(X)    &kp LC(C)   &kp TAB      &kp LC(V)       &none       &kp BSPC    &kp TAB     &mo ADJ     &kp RET     &trans
                                          &none       &trans       &none           &none       &mo NFN     &none
         >;
     };
