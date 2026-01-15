@@ -36,7 +36,7 @@
     nav_layer {
       label= "NAV";
       bindings = <
-                &kp ESC     &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &tog MSE        &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
+                &kp ESC     &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &none           &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
                 &sk LGUI    &sk LALT     &sk LCTL    &sk LSHFT    &key_repeat     &kp PG_DN   &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
     &trans      &none       &kp LC(X)    &kp LC(C)   &kp TAB      &kp LC(V)       &none       &kp BSPC    &kp TAB     &mo ADJ     &kp RET     &trans
                                          &none       &trans       &none           &trans      &mo NFN     &none
