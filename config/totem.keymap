@@ -13,7 +13,6 @@
 #define SYM  2
 #define NFN  3
 #define ADJ  4
-#define MSE  5
 
 &mt {
   flavor = "balanced";
@@ -72,17 +71,6 @@
                 &bootloader    &bt BT_NXT  &trans        &trans   &trans          &trans      &trans      &trans      &trans      &trans
     &trans      &bt BT_CLR_ALL &bt BT_PRV  &trans        &trans   &trans          &trans      &trans      &trans      &trans      &trans  &trans
                                            &trans        &trans   &trans          &trans      &trans      &trans
-        >;
-    };
-    
-    mouse_layer {
-      label= "MSE";
-      bindings = <
-
-                &trans         &trans      &trans        &trans   &trans          &trans      &trans      &trans      &trans      &trans
-                &trans         &trans      &trans        &trans   &trans          &mkp MB3    &mmv MOVE_LEFT      &mmv MOVE_DOWN      &mmv MOVE_UP      &mmv MOVE_RIGHT
-    &trans      &trans         &trans      &trans        &trans   &trans          &trans      &msc SCRL_LEFT      &msc SCRL_DOWN      &msc SCRL_UP      &msc SCRL_RIGHT  &trans
-                                           &trans        &trans   &trans          &mkp MB1    &mkp MB2    &trans
         >;
     };
 	};
