@@ -40,10 +40,10 @@
     nav_layer {
       label= "NAV";
       bindings = <
-                &kp ESC     &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &none           &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
-                &sk LGUI    &sk LALT     &sk LCTL    &sk LSHFT    &key_repeat     &kp PG_DN   &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
-    &trans      &none       &none        &none       &kp TAB      &none           &none       &kp BSPC    &kp TAB     &mo ADJ     &kp RET     &trans
-                                         &none       &trans       &none           &trans      &mo NFN     &none
+                &kp ESC       &none       &none         &none         &none           &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
+                &sk LGUI      &sk LALT    &sk LCTL      &sk LSHFT     &key_repeat     &kp PG_DN   &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
+    &trans      &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &kp TAB       &none           &none       &kp BSPC    &kp TAB     &mo ADJ     &kp RET     &trans
+                                         &none          &trans        &none           &trans      &mo NFN     &none
         >;
     };
 
