@@ -15,8 +15,8 @@
 #define ADJ  4
 
 &mt {
-  flavor = "balanced";
-  tapping-term-ms = <150>;
+  flavor = "tap-preferred";
+  tapping-term-ms = <140>;
 };
 
 &lt {
