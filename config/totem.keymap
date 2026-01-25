@@ -60,7 +60,7 @@
                 &kp ESC     &kp C_VOL_DN  &kp C_MUTE    &kp C_VOL_UP  &none           &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
                 &sk LGUI    &sk LALT      &sk LCTL      &sk LSHFT     &key_repeat     &kp PG_DN   &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
     &trans      &none       &none         &none         &kp TAB       &none           &none       &kp BSPC    &kp TAB     &mo ADJ     &kp RET     &trans
-                                          &none         &trans        &trans          &trans      &none       &none
+                                          &none         &trans        &trans          &trans      &trans      &none
         >;
     };
 
@@ -69,7 +69,7 @@
                 &kp N1      &kp N2       &kp N3      &kp N4       &kp N5          &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
                 &kp GRAVE   &kp LBRC     &kp LPAR    &kp LBKT     &kp LT          &kp COLON   &sk RSHFT   &sk RCTL    &sk RALT    &sk RGUI
     &trans      &kp TILDE   &kp RBRC     &kp RPAR    &kp RBKT     &kp GT          &kp PIPE    &kp MINUS   &kp EQUAL   &kp PLUS    &kp BSLH     &trans
-                                         &none       &none        &trans          &trans      &trans      &none
+                                         &none       &trans       &trans          &trans      &trans      &none
         >;
     };
     
