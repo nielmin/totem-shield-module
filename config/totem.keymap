@@ -38,7 +38,6 @@
     compatible = "zmk,keymap";
 
     base_layer {
-      label= "BASE";
       bindings = <
                 &kp B       &kp L       &kp D       &kp C       &kp V               &kp J           &kp Y       &kp O       &kp U       &kp COMMA
                 &kp N       &kp R       &kp T       &kp S       &kp G               &kp P           &kp H       &kp A       &kp E       &kp I
@@ -48,7 +47,6 @@
     };
 
     // ckdh_layer {
-    //   label= "CKDH";
     //   bindings = <
     //             &kp Q       &kp W       &kp F       &kp P       &kp B               &kp J           &kp L       &kp U       &kp Y       &kp SQT
     //             &kp A       &kp R       &kp S       &kp T       &kp G               &kp M           &kp N       &kp E       &kp I       &kp O
@@ -58,7 +56,6 @@
     // };
 
     nav_layer {
-      label= "NAV";
       bindings = <
                 &kp ESC     &kp C_VOL_DN  &kp C_MUTE    &kp C_VOL_UP  &none           &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
                 &sk LGUI    &sk LALT      &sk LCTL      &sk LSHFT     &key_repeat     &kp PG_DN   &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
@@ -68,7 +65,6 @@
     };
 
     sym_layer {
-      label= "SYM";
       bindings = <
                 &kp N1      &kp N2       &kp N3      &kp N4       &kp N5          &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
                 &kp GRAVE   &kp LBRC     &kp LPAR    &kp LBKT     &kp LT          &kp COLON   &sk RSHFT   &sk RCTL    &sk RALT    &sk RGUI
@@ -78,7 +74,6 @@
     };
     
     numfun_layer {
-      label= "NFN";
       bindings = <
                 &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp STAR    &kp UNDER   &kp SEMI
                 &sk LGUI    &sk LALT    &sk LCTL    &sk LSHFT   &kp F11         &kp F12     &sk RSHFT   &sk RCTL    &sk RALT    &sk RGUI
@@ -88,7 +83,6 @@
     };
  
     adjust_layer {
-      label= "ADJ";
       bindings = <
 
                 &sys_reset     &bt BT_CLR  &out OUT_TOG  &trans   &trans          &trans      &trans      &trans      &trans      &trans
