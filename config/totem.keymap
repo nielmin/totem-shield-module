@@ -9,11 +9,11 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define BASE 0
-#define CKDH 1
-#define NAV  2
-#define SYM  3
-#define NFN  4
-#define ADJ  5
+//#define CKDH 1
+#define NAV  1
+#define SYM  2
+#define NFN  3
+#define ADJ  4
 
 &mt {
   flavor = "tap-preferred";
@@ -38,22 +38,22 @@
         >;
     };
 
-    ckdh_layer {
-      label= "CKDH";
-      bindings = <
-                &kp Q       &kp W       &kp F       &kp P       &kp B               &kp J           &kp L       &kp U       &kp Y       &kp SQT
-                &kp A       &kp R       &kp S       &kp T       &kp G               &kp M           &kp N       &kp E       &kp I       &kp O
-    &none       &kp Z       &kp X       &kp C       &kp D       &kp V               &kp K           &kp H       &kp COMMA   &kp DOT     &kp FSLH    &none
-                                        &none       &mo NAV     &kp SPACE           &kp RSHFT       &mo SYM     &none
-        >;
-    };
+    // ckdh_layer {
+    //   label= "CKDH";
+    //   bindings = <
+    //             &kp Q       &kp W       &kp F       &kp P       &kp B               &kp J           &kp L       &kp U       &kp Y       &kp SQT
+    //             &kp A       &kp R       &kp S       &kp T       &kp G               &kp M           &kp N       &kp E       &kp I       &kp O
+    // &none       &kp Z       &kp X       &kp C       &kp D       &kp V               &kp K           &kp H       &kp COMMA   &kp DOT     &kp FSLH    &none
+    //                                     &none       &mo NAV     &kp SPACE           &kp RSHFT       &mo SYM     &none
+    //     >;
+    // };
 
     nav_layer {
       label= "NAV";
       bindings = <
                 &kp ESC     &kp C_VOL_DN  &kp C_MUTE    &kp C_VOL_UP  &none           &kp PG_UP   &kp INS     &kp HOME    &kp END     &kp DEL
                 &sk LGUI    &sk LALT      &sk LCTL      &sk LSHFT     &key_repeat     &kp PG_DN   &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
-    &trans      &none       &none         &none         &kp TAB       &tog CKDH       &none       &kp BSPC    &kp TAB     &mo ADJ     &kp RET     &trans
+    &trans      &none       &none         &none         &kp TAB       &none           &none       &kp BSPC    &kp TAB     &mo ADJ     &kp RET     &trans
                                           &none         &trans        &trans          &trans      &mo NFN     &none
         >;
     };
