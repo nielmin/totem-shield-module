@@ -10,8 +10,8 @@
 #define ADJ  4
 
 &mt {
-  flavor = "tap-unless-interrupted";
-  tapping-term-ms = <130>;
+  flavor = "hold-preferred";
+  tapping-term-ms = <140>;
 };
 
 &lt {
