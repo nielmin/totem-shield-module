@@ -11,7 +11,7 @@
 
 &mt {
   flavor = "hold-preferred";
-  tapping-term-ms = <140>;
+  tapping-term-ms = <130>;
 };
 
 &lt {
@@ -52,8 +52,8 @@
     sym_layer {
       bindings = <
                 &kp N1      &kp N2       &kp N3      &kp N4       &kp N5          &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
-                &kp TILDE   &kp LBKT     &kp LBRC    &kp LPAR     &kp LT          &kp COLON   &sk RSHFT   &sk RCTL    &sk RALT    &sk RGUI
-    &trans      &kp GRAVE   &kp RBKT     &kp RBRC    &kp RPAR     &kp GT          &kp PIPE    &kp MINUS   &kp EQUAL   &kp PLUS    &kp BSLH     &trans
+                &kp TILDE   &kp GRAVE    &kp LBRC    &kp LPAR     &kp LBKT        &kp COLON   &sk RSHFT   &sk RCTL    &sk RALT    &sk RGUI
+    &trans      &kp LT      &kp GT       &kp RBRC    &kp RPAR     &kp RBKT        &kp PIPE    &kp MINUS   &kp EQUAL   &kp PLUS    &kp BSLH     &trans
                                          &none       &trans       &trans          &trans      &trans      &none
         >;
     };
