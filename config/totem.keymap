@@ -15,18 +15,18 @@
 };
 
 &lt {
-  tapping-term-ms = <200>;
+  tapping-term-ms = <140>;
 };
 
 / {
 
-  conditional_layers {
-    compatible = "zmk,conditional-layers";
-    numfun_layer {
-      if-layers = <NAV SYM>;
-      then-layer = <NFN>;
-    };
-  };
+//  conditional_layers {
+//    compatible = "zmk,conditional-layers";
+//    numfun_layer {
+//      if-layers = <NAV SYM>;
+//      then-layer = <NFN>;
+//    };
+//  };
 
   keymap {
     compatible = "zmk,keymap";
@@ -36,7 +36,7 @@
                 &kp B       &kp L       &kp D       &kp C       &kp V               &kp J           &kp Y       &kp O       &kp U       &kp SQT
                 &kp N       &kp R       &kp T       &kp S       &kp G               &kp P           &kp H       &kp A       &kp E       &kp I
     &none       &kp X       &kp Q       &kp M       &kp W       &kp Z               &kp K           &kp F       &kp COMMA   &kp DOT     &kp FSLH  &none
-                                        &none       &mo NAV     &kp SPACE           &kp RSHFT       &mo SYM     &none
+                                        &none       &mo NAV     &lt NFN SPACE       &kp RSHFT       &mo SYM     &none
         >;
     };
 
