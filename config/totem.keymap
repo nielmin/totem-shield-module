@@ -16,18 +16,10 @@
 
 &lt {
   flavor = "tap-preferred";
-  tapping-term-ms = <180>;
+  tapping-term-ms = <170>;
 };
 
 / {
-
-// conditional_layers {
-//   compatible = "zmk,conditional-layers";
-//   numfun_layer {
-//     if-layers = <NAV SYM>;
-//     then-layer = <NFN>;
-//   };
-// };
 
   keymap {
     compatible = "zmk,keymap";
