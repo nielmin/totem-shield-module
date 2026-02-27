@@ -27,6 +27,51 @@
       key-positions = <0 10>;
       bindings = <&kp EXCL>;
     };
+    combo_at {
+      timeout-ms = <50>;
+      key-positions = <1 11>;
+      bindings = <&kp AT>;
+    };
+    combo_hash {
+      timeout-ms = <50>;
+      key-positions = <2 12>;
+      bindings = <&kp HASH>;
+    };
+    combo_dllr {
+      timeout-ms = <50>;
+      key-positions = <3 13>;
+      bindings = <&kp DLLR>;
+    };
+    combo_prcnt {
+      timeout-ms = <50>;
+      key-positions = <4 14>;
+      bindings = <&kp PRCNT>;
+    };
+    combo_caret {
+      timeout-ms = <50>;
+      key-positions = <5 15>;
+      bindings = <&kp CARET>;
+    };
+    combo_amps {
+      timeout-ms = <50>;
+      key-positions = <6 16>;
+      bindings = <&kp AMPS>;
+    };
+    combo_star {
+      timeout-ms = <50>;
+      key-positions = <7 17>;
+      bindings = <&kp AMPS>;
+    };
+    combo_under{
+      timeout-ms = <50>;
+      key-positions = <8 18>;
+      bindings = <&kp UNDER>;
+    };
+    combo_semi {
+      timeout-ms = <50>;
+      key-positions = <9 19>;
+      bindings = <&kp SEMI>;
+    };
   };
 
   keymap {
@@ -37,7 +82,7 @@
                 &kp B       &kp L       &kp D       &kp C       &kp V               &kp J           &kp Y       &kp O       &kp U       &kp SQT
                 &kp N       &kp R       &kp T       &kp S       &kp G               &kp P           &kp H       &kp A       &kp E       &kp I
     &none       &kp X       &kp Q       &kp M       &kp W       &kp Z               &kp K           &kp F       &kp COMMA   &kp DOT     &kp FSLH  &none
-                                        &none       &mo NAV     &lt NFN SPACE       &kp RSHFT       &mo SYM     &none
+                                        &none       &mo NAV     &kp SPACE           &kp RSHFT       &mo SYM     &none
         >;
     };
 
@@ -52,7 +97,7 @@
 
     sym_layer {
       bindings = <
-                &kp EXCL    &kp AT       &kp HASH    &kp DLLR     &kp PRCNT       &kp CARET   &kp AMPS    &kp STAR    &kp UNDER   &kp SEMI
+                &kp N1      &kp N2       &kp N3      &kp N4       &kp N5          &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
                 &kp TILDE   &kp GRAVE    &kp LBRC    &kp LPAR     &kp LBKT        &kp COLON   &sk RSHFT   &sk RCTL    &sk RALT    &sk RGUI
     &trans      &kp LT      &kp GT       &kp RBRC    &kp RPAR     &kp RBKT        &kp PIPE    &kp MINUS   &kp EQUAL   &kp PLUS    &kp BSLH     &trans
                                          &none       &trans       &trans          &trans      &trans      &none
@@ -61,7 +106,7 @@
     
     numfun_layer {
       bindings = <
-                &kp N1      &kp N2      &kp N3      &kp N4      &kp N5          &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
+                &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
                 &sk LGUI    &sk LALT    &sk LCTL    &sk LSHFT   &kp F11         &kp F12     &sk RSHFT   &sk RCTL    &sk RALT    &sk RGUI
     &trans      &kp F1      &kp F2      &kp F3      &kp F4      &kp F5          &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &trans
                                         &trans      &trans      &trans          &trans      &trans      &trans      
