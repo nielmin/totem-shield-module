@@ -24,7 +24,7 @@
     compatible = "zmk,combos";
     combo_excl {
       timeout-ms = <50>;
-      key-positions = <0 10>;
+      key-positions = <0 34>;
       bindings = <&kp EXCL>;
     };
     combo_at {
