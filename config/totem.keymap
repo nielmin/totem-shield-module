@@ -60,7 +60,7 @@
     combo_star {
       timeout-ms = <50>;
       key-positions = <7 17>;
-      bindings = <&kp AMPS>;
+      bindings = <&kp STAR>;
     };
     combo_under{
       timeout-ms = <50>;
