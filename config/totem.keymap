@@ -29,47 +29,47 @@
     };
     combo_at {
       timeout-ms = <50>;
-      key-positions = <1 11>;
+      key-positions = <1 34>;
       bindings = <&kp AT>;
     };
     combo_hash {
       timeout-ms = <50>;
-      key-positions = <2 12>;
+      key-positions = <2 34>;
       bindings = <&kp HASH>;
     };
     combo_dllr {
       timeout-ms = <50>;
-      key-positions = <3 13>;
+      key-positions = <3 34>;
       bindings = <&kp DLLR>;
     };
     combo_prcnt {
       timeout-ms = <50>;
-      key-positions = <4 14>;
+      key-positions = <4 34>;
       bindings = <&kp PRCNT>;
     };
     combo_caret {
       timeout-ms = <50>;
-      key-positions = <5 15>;
+      key-positions = <5 35>;
       bindings = <&kp CARET>;
     };
     combo_amps {
       timeout-ms = <50>;
-      key-positions = <6 16>;
+      key-positions = <6 35>;
       bindings = <&kp AMPS>;
     };
     combo_star {
       timeout-ms = <50>;
-      key-positions = <7 17>;
+      key-positions = <7 35>;
       bindings = <&kp STAR>;
     };
     combo_under{
       timeout-ms = <50>;
-      key-positions = <8 18>;
+      key-positions = <8 35>;
       bindings = <&kp UNDER>;
     };
     combo_semi {
       timeout-ms = <50>;
-      key-positions = <9 19>;
+      key-positions = <9 35>;
       bindings = <&kp SEMI>;
     };
   };
