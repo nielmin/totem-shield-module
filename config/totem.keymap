@@ -62,7 +62,7 @@
       key-positions = <7 35>;
       bindings = <&kp STAR>;
     };
-    combo_under{
+    combo_under {
       timeout-ms = <50>;
       key-positions = <8 35>;
       bindings = <&kp UNDER>;
@@ -72,6 +72,14 @@
       key-positions = <9 35>;
       bindings = <&kp SEMI>;
     };
+  };
+
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
+      tri_layer {
+          if-layers = <NAV SYM>;
+          then-layer = <NFN>;
+      };
   };
 
   keymap {
