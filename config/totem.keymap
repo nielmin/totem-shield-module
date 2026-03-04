@@ -23,52 +23,52 @@
   combos {
     compatible = "zmk,combos";
     combo_excl {
-      timeout-ms = <25>;
+      timeout-ms = <40>;
       key-positions = <0 10>;
       bindings = <&kp EXCL>;
     };
     combo_at {
-      timeout-ms = <25>;
+      timeout-ms = <40>;
       key-positions = <1 11>;
       bindings = <&kp AT>;
     };
     combo_hash {
-      timeout-ms = <25>;
+      timeout-ms = <40>;
       key-positions = <2 12>;
       bindings = <&kp HASH>;
     };
     combo_dllr {
-      timeout-ms = <25>;
+      timeout-ms = <40>;
       key-positions = <3 13>;
       bindings = <&kp DLLR>;
     };
     combo_prcnt {
-      timeout-ms = <25>;
+      timeout-ms = <40>;
       key-positions = <4 14>;
       bindings = <&kp PRCNT>;
     };
     combo_caret {
-      timeout-ms = <25>;
+      timeout-ms = <40>;
       key-positions = <5 15>;
       bindings = <&kp CARET>;
     };
     combo_amps {
-      timeout-ms = <25>;
+      timeout-ms = <40>;
       key-positions = <6 16>;
       bindings = <&kp AMPS>;
     };
     combo_star {
-      timeout-ms = <25>;
+      timeout-ms = <40>;
       key-positions = <7 17>;
       bindings = <&kp STAR>;
     };
     combo_under {
-      timeout-ms = <25>;
+      timeout-ms = <40>;
       key-positions = <8 18>;
       bindings = <&kp UNDER>;
     };
     combo_semi {
-      timeout-ms = <25>;
+      timeout-ms = <40>;
       key-positions = <9 19>;
       bindings = <&kp SEMI>;
     };
